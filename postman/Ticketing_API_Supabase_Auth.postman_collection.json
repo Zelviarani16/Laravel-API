@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "ticketing-api-supabase-auth",
+		"name": "Ticketing API - Supabase Auth Migration",
+		"description": "Collection untuk testing migrasi dari Laravel Sanctum ke Supabase Auth. Jalankan test secara berurutan sesuai nomor.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8000/api",
+			"type": "string"
+		},
+		{
+			"key": "supabaseUrl",
+			"value": "https://xhvfyknfhsrnbgwnchsp.supabase.co",
+			"type": "string"
+		},
+		{
+			"key": "supabaseAnonKey",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhodmZ5a25maHNybmJnd25jaHNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAxNTA1ODcsImV4cCI6MjA5NTcyNjU4N30.meS1IrE4BxVEjTGCxrPFTFbPQesJwPHXwI_EpTmr0-4",
+			"type": "string"
+		},
+		{
+			"key": "jwtToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "userEmail",
+			"value": "test@example.com",
+			"type": "string"
+		},
+		{
+			"key": "userPassword",
+			"value": "password123",
+			"type": "string"
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwtToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"item": [
+		{
+			"name": "TEST 1 - Get JWT from Supabase",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"if (jsonData.access_token) {",
+							"    pm.collectionVariables.set('jwtToken', jsonData.access_token);",
+							"    console.log('JWT berhasil di-parse dan disimpan');",
+							"}",
+							"",
+							"pm.test('Response memiliki access_token', function() {",
+							"    pm.expect(jsonData).to.have.property('access_token');",
+							"});",
+							"",
+							"pm.test('access_token tidak kosong', function() {",
+							"    pm.expect(jsonData.access_token).to.not.be.empty;",
+							"});",
+							"",
+							"pm.test('Response memiliki user', function() {",
+							"    pm.expect(jsonData).to.have.property('user');",
+							"});",
+							"",
+							"pm.test('Status code 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "{{supabaseAnonKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"{{userEmail}}\",\n    \"password\": \"{{userPassword}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{supabaseUrl}}/auth/v1/token?grant_type=password",
+					"host": ["{{supabaseUrl}}"],
+					"path": ["auth", "v1", "token"],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						}
+					]
+				},
+				"description": "Dapat JWT token dari Supabase Auth untuk dipakai di test berikutnya. Jika user belum ada, buat dulu di Supabase Dashboard atau pakai test user yang sudah ada."
+			},
+			"response": []
+		},
+		{
+			"name": "TEST 2 - Register (POST /auth/register)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code 201 Created', function() {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test('Response memiliki user object', function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('user');",
+							"    pm.expect(jsonData.user).to.have.property('id');",
+							"    pm.expect(jsonData.user).to.have.property('name');",
+							"    pm.expect(jsonData.user).to.have.property('email');",
+							"});",
+							"",
+							"pm.test('Message = Registrasi berhasil', function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.include('berhasil');",
+							"});",
+							"",
+							"pm.test('User role = user', function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.user.role).to.eql('user');",
+							"});",
+							"",
+							"pm.test('User name sesuai input', function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.user.name).to.eql('Test User');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwtToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Test User\",\n    \"role\": \"user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/register",
+					"host": ["{{baseUrl}}"],
+					"path": ["auth", "register"]
+				},
+				"description": "Test register endpoint - middleware VerifySupabaseToken verify JWT dan insert ke public.users"
+			},
+			"response": []
+		},
+		{
+			"name": "TEST 3 - Profile (GET /auth/profile)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Response memiliki user object', function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('user');",
+							"    pm.expect(jsonData.user).to.have.property('id');",
+							"    pm.expect(jsonData.user).to.have.property('name');",
+							"    pm.expect(jsonData.user).to.have.property('email');",
+							"    pm.expect(jsonData.user).to.have.property('role');",
+							"});",
+							"",
+							"pm.test('$request->user() berfungsi', function() {",
+							"    var jsonData = pm.response.json();",
+							"    // User harus punya id dari JWT sub claim",
+							"    pm.expect(jsonData.user.id).to.be.a('string');",
+							"    pm.expect(jsonData.user.id).to.not.be.empty;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwtToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/auth/profile",
+					"host": ["{{baseUrl}}"],
+					"path": ["auth", "profile"]
+				},
+				"description": "Test profile endpoint - verify $request->user() berfungsi via middleware baru"
+			},
+			"response": []
+		},
+		{
+			"name": "TEST 4 - Get Tickets (GET /tickets)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code 200', function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test('Response memiliki tickets array', function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('tickets');",
+							"    pm.expect(jsonData.tickets).to.be.an('array');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwtToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/tickets",
+					"host": ["{{baseUrl}}"],
+					"path": ["tickets"]
+				},
+				"description": "Test tickets endpoint - verify middleware berfungsi di route non-auth"
+			},
+			"response": []
+		},
+		{
+			"name": "TEST 5 - Without Token (GET /tickets) - SHOULD FAIL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code 401 Unauthorized', function() {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test('Response memiliki error message', function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('message');",
+							"});",
+							"",
+							"pm.test('Message menjelaskan token tidak ada', function() {",
+							"    var jsonData = pm.response.json();",
+							"    var msg = jsonData.message.toLowerCase();",
+							"    pm.expect(msg).to.include('token');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/tickets",
+					"host": ["{{baseUrl}}"],
+					"path": ["tickets"]
+				},
+				"description": "Test request TANPA token - harus di-reject dengan 401. Ini verify middleware menolak request tanpa JWT."
+			},
+			"response": []
+		},
+		{
+			"name": "TEST 6 - Invalid Token (GET /tickets) - SHOULD FAIL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code 401 Unauthorized', function() {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test('Response memiliki error message', function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('message');",
+							"});",
+							"",
+							"pm.test('Message menjelaskan token invalid', function() {",
+							"    var jsonData = pm.response.json();",
+							"    var msg = jsonData.message.toLowerCase();",
+							"    pm.expect(msg).to.include('invalid') || pm.expect(msg).to.include('tidak valid');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "tokenpalsu12345",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/tickets",
+					"host": ["{{baseUrl}}"],
+					"path": ["tickets"]
+				},
+				"description": "Test request dengan token INVALID - harus di-reject dengan 401. Ini verify middleware men-verify signature JWT."
+			},
+			"response": []
+		},
+		{
+			"name": "TEST 7 - Create Ticket (POST /tickets)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code 201 Created', function() {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test('Response memiliki ticket object', function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('ticket');",
+							"    pm.expect(jsonData.ticket).to.have.property('id');",
+							"    pm.expect(jsonData.ticket).to.have.property('title');",
+							"    pm.expect(jsonData.ticket).to.have.property('user_id');",
+							"});",
+							"",
+							"pm.test('Ticket title sesuai input', function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.ticket.title).to.eql('Test Tiket');",
+							"});",
+							"",
+							"pm.test('user_id terisi dari JWT sub claim', function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.ticket.user_id).to.be.a('string');",
+							"    pm.expect(jsonData.ticket.user_id).to.not.be.empty;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwtToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Test Tiket\",\n    \"description\": \"Ini test tiket setelah migrasi auth\",\n    \"category\": \"Software\",\n    \"priority\": \"low\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/tickets",
+					"host": ["{{baseUrl}}"],
+					"path": ["tickets"]
+				},
+				"description": "Test create ticket - verify $request->user()->id berfungsi untuk isi user_id tiket"
+			},
+			"response": []
+		}
+	]
+}

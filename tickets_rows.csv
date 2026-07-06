@@ -1,0 +1,15 @@
+id,title,description,status,priority,category,user_id,assigned_to,created_at,updated_at
+3e7b2d02-04fa-42be-b39f-4e089f3f9ca2,Laptop tidak bisa menyala,Laptop tiba-tiba mati sejak kemarin pagi dan tidak bisa dihidupkan sama sekali,in_progress,critical,Hardware,eecf02e4-d4fd-474c-8c28-ea93db72a46e,null,2026-06-03 10:16:22+00,2026-06-03 11:43:14+00
+98c722f7-8635-4a97-9eed-057aa83e843f,Laptop tidak bisa menyala,Laptop tiba-tiba mati sejak kemarin pagi dan tidak bisa dihidupkan sama sekali,open,high,Hardware,eecf02e4-d4fd-474c-8c28-ea93db72a46e,null,2026-06-03 11:47:09+00,2026-06-03 11:47:09+00
+7c3192c4-d8d5-44d8-a393-2192e3b79436,Test tiket user,Deskripsi tiket user,open,high,Software,fd5aef8a-4621-4d42-95ec-eaf214d1e1cf,null,2026-06-04 14:53:23+00,2026-06-04 14:53:23+00
+0af11516-9922-4fdd-b543-49135934fc77,Test kedua user,Deskripsi Test kedua user,open,high,Software,fd5aef8a-4621-4d42-95ec-eaf214d1e1cf,null,2026-06-05 08:27:27+00,2026-06-05 08:27:27+00
+2ace73e2-bba3-4269-a328-8b5803d91d41,Test aja,test aja,resolved,low,Software,fd5aef8a-4621-4d42-95ec-eaf214d1e1cf,c381c894-0547-47f9-a0c8-2be1e526de1b,2026-06-23 18:30:29+00,2026-06-23 19:49:43+00
+20cfd206-adb9-4390-839f-7e9dd4809c3c,Demo,deskripsi demo,resolved,low,Software,fd5aef8a-4621-4d42-95ec-eaf214d1e1cf,c381c894-0547-47f9-a0c8-2be1e526de1b,2026-06-30 07:23:04+00,2026-06-30 07:32:38+00
+07b39a8c-a2bb-4ebd-b168-125d2e18c8d1,Test ui,test,resolved,medium,Software,fd5aef8a-4621-4d42-95ec-eaf214d1e1cf,fc851c59-debc-43e5-a3f2-96d44cd7ea95,2026-06-30 11:02:34+00,2026-06-30 11:54:02+00
+2d86b837-cea2-483d-9593-e9a4d275e02b,Halo,halo,open,low,Software,fd5aef8a-4621-4d42-95ec-eaf214d1e1cf,null,2026-06-30 16:41:44+00,2026-06-30 16:41:44+00
+cc7b7741-54f1-4eed-b6b7-0c6a86028b98,Halo,halo,open,low,Software,fd5aef8a-4621-4d42-95ec-eaf214d1e1cf,null,2026-06-30 16:41:54+00,2026-06-30 16:41:54+00
+8d0a6cf3-c579-4767-b8b4-b9abd3f6d030,Halo,halo,open,low,Software,fd5aef8a-4621-4d42-95ec-eaf214d1e1cf,null,2026-06-30 16:45:50+00,2026-06-30 16:45:50+00
+79ca6e11-63ba-4caa-8f7c-081e3c13ed2a,Halo,halo,open,low,Software,fd5aef8a-4621-4d42-95ec-eaf214d1e1cf,null,2026-06-30 16:52:55+00,2026-06-30 16:52:55+00
+8cd85a5c-315d-4a54-ab2c-23969a845c13,Test Tiket,Ini test tiket setelah migrasi auth,open,low,Software,b3995ad9-46df-4e23-b490-6fb30e197e79,null,2026-07-01 07:53:16+00,2026-07-01 07:53:16+00
+9e36b40b-488d-4ffd-b137-af88003281a8,Laptop tidak bisa nyala,"Saat digunakan, tiba-tiba mati sendiri. Kursor hilang tetapi tombol power masih nyala.",in_progress,high,Hardware,f6fa665a-7949-4742-923c-27e87c081f85,null,2026-07-01 12:21:48+00,2026-07-02 20:46:06+00
+7b3a1165-a4e8-4b3d-983c-db746e032927,Test buat tiket,test,closed,high,Software,b3995ad9-46df-4e23-b490-6fb30e197e79,773bd6e0-35a2-4f67-9308-ce6b30df8efd,2026-07-01 12:07:16+00,2026-07-02 21:26:45+00

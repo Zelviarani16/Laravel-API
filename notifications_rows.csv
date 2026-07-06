@@ -1,0 +1,21 @@
+id,user_id,role,title,message,ticket_id,is_read,created_at
+9130d733-3ec2-4476-924a-b9b7874d5a07,eecf02e4-d4fd-474c-8c28-ea93db72a46e,null,Tiket Baru,Tiket baru dibuat: Halo,79ca6e11-63ba-4caa-8f7c-081e3c13ed2a,false,2026-06-30 16:52:55.80492+00
+e8ff263d-d5f7-40ed-8825-8588af8752b7,c381c894-0547-47f9-a0c8-2be1e526de1b,null,Tiket Baru,Tiket baru dibuat: Halo,79ca6e11-63ba-4caa-8f7c-081e3c13ed2a,false,2026-06-30 16:52:55.983509+00
+1baa8e18-c510-4226-a53e-0b646101bfaf,fc851c59-debc-43e5-a3f2-96d44cd7ea95,null,Tiket Baru,Tiket baru dibuat: Halo,79ca6e11-63ba-4caa-8f7c-081e3c13ed2a,false,2026-06-30 16:52:56.253648+00
+8e82e325-191c-4c0d-9d6c-fea3b53ec831,fd5aef8a-4621-4d42-95ec-eaf214d1e1cf,null,Komentar Baru,"Ada balasan baru di tiket ""Halo""",79ca6e11-63ba-4caa-8f7c-081e3c13ed2a,false,2026-06-30 17:16:12.322959+00
+7cdd51c5-1070-41e6-8ada-a179e44272e5,eecf02e4-d4fd-474c-8c28-ea93db72a46e,null,Tiket Baru,Tiket baru dibuat: Test Tiket,8cd85a5c-315d-4a54-ab2c-23969a845c13,false,2026-07-01 07:53:16.203611+00
+913086ae-f7fd-4323-b580-e970aa5da1bf,c381c894-0547-47f9-a0c8-2be1e526de1b,null,Tiket Baru,Tiket baru dibuat: Test Tiket,8cd85a5c-315d-4a54-ab2c-23969a845c13,false,2026-07-01 07:53:16.445123+00
+a743d71a-d791-4268-b372-9d518c72a222,fc851c59-debc-43e5-a3f2-96d44cd7ea95,null,Tiket Baru,Tiket baru dibuat: Test Tiket,8cd85a5c-315d-4a54-ab2c-23969a845c13,false,2026-07-01 07:53:16.539214+00
+3ab593b3-2091-4275-9e54-dd33a4db2ce8,eecf02e4-d4fd-474c-8c28-ea93db72a46e,null,Tiket Baru,Tiket baru dibuat: Test buat tiket,7b3a1165-a4e8-4b3d-983c-db746e032927,false,2026-07-01 12:07:15.197887+00
+8d349696-1e6c-492f-9ce0-f23bb1998ccf,c381c894-0547-47f9-a0c8-2be1e526de1b,null,Tiket Baru,Tiket baru dibuat: Test buat tiket,7b3a1165-a4e8-4b3d-983c-db746e032927,false,2026-07-01 12:07:15.48643+00
+c58fc0c7-6ec8-4d36-b73b-83a4c4acf753,fc851c59-debc-43e5-a3f2-96d44cd7ea95,null,Tiket Baru,Tiket baru dibuat: Test buat tiket,7b3a1165-a4e8-4b3d-983c-db746e032927,false,2026-07-01 12:07:15.751573+00
+e4dfe640-d242-4e2a-92ce-f472c4d84d98,eecf02e4-d4fd-474c-8c28-ea93db72a46e,null,Tiket Baru,Tiket baru dibuat: Laptop tidak bisa nyala,9e36b40b-488d-4ffd-b137-af88003281a8,false,2026-07-01 12:21:47.1038+00
+6052b24e-2f9e-441c-ad10-54d4c035b352,c381c894-0547-47f9-a0c8-2be1e526de1b,null,Tiket Baru,Tiket baru dibuat: Laptop tidak bisa nyala,9e36b40b-488d-4ffd-b137-af88003281a8,false,2026-07-01 12:21:47.406255+00
+049a2406-36ca-461e-8f5e-52b0558aea2f,fc851c59-debc-43e5-a3f2-96d44cd7ea95,null,Tiket Baru,Tiket baru dibuat: Laptop tidak bisa nyala,9e36b40b-488d-4ffd-b137-af88003281a8,false,2026-07-01 12:21:47.653598+00
+eee96c80-5df5-4209-9928-e0cdce69c63f,f6fa665a-7949-4742-923c-27e87c081f85,null,Status Tiket Diperbarui,"Tiket ""Laptop tidak bisa nyala"" statusnya berubah menjadi in_progress",9e36b40b-488d-4ffd-b137-af88003281a8,false,2026-07-02 20:46:04.299711+00
+aae1e1a7-a535-4f72-b671-f2a94cfc72a7,f6fa665a-7949-4742-923c-27e87c081f85,null,Komentar Baru,"Ada balasan baru di tiket ""Laptop tidak bisa nyala""",9e36b40b-488d-4ffd-b137-af88003281a8,false,2026-07-02 20:46:22.000329+00
+7274fea7-8afe-4874-9037-a935f1e64157,773bd6e0-35a2-4f67-9308-ce6b30df8efd,null,Tiket Diassign ke Kamu,"Tiket ""Test buat tiket"" telah diassign kepada kamu",7b3a1165-a4e8-4b3d-983c-db746e032927,false,2026-07-02 21:25:06.497615+00
+838a654a-ec67-4ec1-b054-d948a2d8aa26,b3995ad9-46df-4e23-b490-6fb30e197e79,null,Komentar Baru,"Ada balasan baru di tiket ""Test buat tiket""",7b3a1165-a4e8-4b3d-983c-db746e032927,false,2026-07-02 21:25:28.002555+00
+d9a4191b-c306-4b44-858b-bf1dbe03b6df,773bd6e0-35a2-4f67-9308-ce6b30df8efd,null,Komentar Baru,"Ada balasan baru di tiket ""Test buat tiket""",7b3a1165-a4e8-4b3d-983c-db746e032927,false,2026-07-02 21:25:28.34121+00
+b5bd323e-ce28-4d2d-a5fc-b9fed738a994,b3995ad9-46df-4e23-b490-6fb30e197e79,null,Komentar Baru,"Ada balasan baru di tiket ""Test buat tiket""",7b3a1165-a4e8-4b3d-983c-db746e032927,false,2026-07-02 21:26:29.759151+00
+54ef4c98-deca-44bb-9e6f-1ae5742bb33f,b3995ad9-46df-4e23-b490-6fb30e197e79,null,Status Tiket Diperbarui,"Tiket ""Test buat tiket"" statusnya berubah menjadi closed",7b3a1165-a4e8-4b3d-983c-db746e032927,false,2026-07-02 21:26:43.877715+00

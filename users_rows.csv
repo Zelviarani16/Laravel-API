@@ -1,0 +1,11 @@
+id,name,email,password,role,created_at,updated_at,avatar
+eecf02e4-d4fd-474c-8c28-ea93db72a46e,Admin Test,admin@test.com,$2y$12$l2q5CT5eU5HIUPSNFXn34Ovlm4483vMMeHiwSzSU.lMDcVt9mTbVe,admin,2026-06-03 01:49:25+00,2026-06-03 01:49:25+00,null
+fd5aef8a-4621-4d42-95ec-eaf214d1e1cf,user,user@test.com,$2y$12$ntocwc8W1cnJuG3kZnsOgOkkILaWK.58Te1zvttH.jkRJbf/UdjFq,user,2026-06-04 14:51:53+00,2026-06-04 14:51:53+00,null
+c381c894-0547-47f9-a0c8-2be1e526de1b,Budi Helpdesk,budi@test.com,$2y$12$gky8q0s.HXeqtmWRRQktpufChOOEKBm/sB6Tgj6Xrl4hJe7/CbOGq,helpdesk,2026-06-05 17:40:03+00,2026-06-05 17:40:03+00,null
+b3995ad9-46df-4e23-b490-6fb30e197e79,Test Aja,zelviarani16@gmail.com,$2y$12$aidM8hgbMxF57fKW6jG.l.RJPSUhdlFjlvoZr012iCvgjMqTUH1ym,user,2026-07-01 06:13:41+00,2026-07-01 10:25:06+00,null
+3eaf974b-b254-4195-8c1d-b85ab80ca7ad,Aisyah User,aisyah@gmail.com,password123,user,2026-07-01 12:03:37.946016+00,2026-07-01 12:03:37.946016+00,null
+8f8627bd-8839-4792-be4d-d17e8a63893d,Test Again,test@test.com,$2y$12$MHaNo.YnzRAPASvfD.iHYOlpFLQuQ8r1a/Ljeq.e041EfZoYMIksS,user,2026-07-01 12:14:17+00,2026-07-01 12:14:17+00,null
+773bd6e0-35a2-4f67-9308-ce6b30df8efd,Hadi Helpdesk,hadi@test.com,$2y$12$hs6zqbojfzFLHZllvESRNOV6frx2ESeztOGuRHGhLoAZXUS1VdiIq,helpdesk,2026-07-01 12:22:42+00,2026-07-01 12:22:42+00,null
+9632db3d-a5db-4160-b506-0af142578c5c,Ana Admin,ana@test.com,$2y$12$NYe6EdHxTC6pbabQzX/uG.T6dyP3GyTNO0gT7SD855rYNQ95jWj9q,admin,2026-07-01 12:23:18+00,2026-07-01 12:23:18+00,null
+f6fa665a-7949-4742-923c-27e87c081f85,Zelvia User,zelvia@test.com,$2y$12$GGj1fJaaPFiERelpx4pQQu80wl/op9KlEHAOK7U47RHS0N1OKv4J6,user,2026-07-01 12:19:20+00,2026-07-01 12:46:34+00,null
+fc851c59-debc-43e5-a3f2-96d44cd7ea95,Fero Helpdesk,fero@test.com,$2y$12$gnf/hgzkiBbzwTbBye1AjOYZS7B2JRfncCdtsmzz0jN8l4ZvDWDMC,helpdesk,2026-06-30 07:58:04+00,2026-06-30 07:58:04+00,null
